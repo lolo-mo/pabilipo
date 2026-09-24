@@ -9,91 +9,160 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play pabilipo.</tw-noscript></noscript></tw-story>
-<tw-storydata name="pabilipo" startnode="4" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="1AEF0045-E8FB-46AE-A460-EC6C4D754B43" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* --- GLOBAL SARI-SARI STORE THEME --- */
+<tw-storydata name="pabilipo" startnode="45" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="1AEF0045-E8FB-46AE-A460-EC6C4D754B43" options="" tags="" zoom="0.3" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* --- SAFE HARLOWE 3.3.9 STYLESHEET --- */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Courier+Prime:wght@400;700&display=swap');
 
-/* Import atmospheric fonts */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Special+Elite&family=Inter:wght@400;600&display=swap');
-
-/* Main Twine/Harlowe Page Body */
+/* Global text and font settings */
 tw-story {
-  background-color: #1a1614 !important; /* Dark night ambiance background */
-  color: #f1f0ee !important;
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Courier Prime', monospace !important;
+  color: #f2ebd9 !important;
+  background-color: #120e0a !important;
 }
 
-/* Style normal passage text for readability */
+/* =========================================================
+   PASSAGE CONTAINER
+   ========================================================= */
+
 tw-passage {
-  font-size: 1.05em;
-  line-height: 1.6;
+    display: block;
+
+    width: min(650px, calc(100% - 40px));
+
+    margin: 0 auto !important;
+    padding: 0 0 60px !important;
+
+    box-sizing: border-box;
+
+    color: #d6d6d6;
+
+    font-family: "Courier New", Courier, monospace;
+
+    font-size: 16px;
+    line-height: 1.75;
 }
 
-/* Style choices/links to look like interactive options or chalk highlights */
+/* Styled interactive choices */
 tw-link, .link {
   color: #ffb703 !important;
-  font-weight: 600;
-  transition: color 0.2s ease;
+  font-weight: bold !important;
+  transition: all 0.2s ease-in-out !important;
 }
 
 tw-link:hover, .link:hover {
-  color: #fb8500 !important;
-  text-shadow: 0 0 8px rgba(251, 133, 0, 0.4);
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 183, 3, 0.6);
 }
 
-/* Custom Header Styling (Time & Loop Counter) */
-div[style*="border-bottom"] {
-  background-color: #2b2421;
-  border: 1px solid #483d37 !important;
-  padding: 10px 15px !important;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+/* Headings */
+h1, h2, h3 {
+  font-family: 'VT323', monospace;
+  color: #ffb703;
+  letter-spacing: 2px;
 }
 
-/* --- THE LEDGER SPECIFIC STYLING --- */
+/* --- LEDGER STYLING --- */
 .ledger-page {
-  background-color: #fcf8e3; /* Classic yellow legal pad */
+  background-color: #fcf8e3;
   background-image: 
-    linear-gradient(90deg, transparent 79px, #ff8b8b 79px, #ff8b8b 81px, transparent 81px), 
+    linear-gradient(90deg, transparent 70px, #e06d6d 70px, #e06d6d 72px, transparent 72px), 
     linear-gradient(#e1d7c6 1px, transparent 1px); 
-  background-size: 100% 30px; 
-  border: 1px solid #d4c5a9;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  padding: 40px 20px 30px 100px; 
-  font-family: 'Caveat', cursive;
-  font-size: 1.4em;
-  color: #2b2b2b;
-  max-width: 600px;
+  background-size: 100% 28px; 
+  border: 2px solid #d4c5a9;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  padding: 35px 25px 25px 95px; 
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.1em; 
+  color: #1a1a1a;
+  max-width: 850px;
   margin: 20px auto;
-  position: relative;
   border-radius: 4px;
 }
 
 .ledger-title {
-  font-family: 'Special Elite', monospace;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.2em;
   text-align: center;
-  color: #1d3557;
-  border-bottom: 2px dashed #457b9d;
-  margin-bottom: 25px;
-  padding-bottom: 10px;
-  background: rgba(255,255,255,0.6);
+  color: #8b0000;
+  border-bottom: 2px solid #8b0000;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  background: rgba(255,255,255,0.8);
 }
 
 .ledger-item {
-  line-height: 30px; 
+  line-height: 28px; 
   margin-bottom: 0;
 }
 
 .ledger-crossed {
   text-decoration: line-through;
-  color: #e63946;
-  text-decoration-thickness: 2px;
+  color: #d90429;
+  font-weight: bold;
 }
 
 .ledger-correction {
   color: #1d3557;
   font-weight: bold;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="UserInit" tags="" position="800,200" size="100,100">(set: $loopCount to 1)
+}
+
+
+/* Main menu container layout */
+.menu-container {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Menu image frame */
+.menu-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Subtitle and descriptions */
+.menu-subtitle {
+  color: #8d99ae;
+  font-size: 1.1em;
+  margin-top: -10px;
+}
+
+.menu-desc {
+  color: #adb5bd;
+  font-size: 0.9em;
+  margin: 25px 0;
+}
+
+.menu-footer {
+  margin-top: 30px;
+  font-size: 0.75em;
+  color: #6c757d;
+}
+
+/* =========================================================
+   MUSIC
+   ========================================================= */
+#bgm {
+    display: none;
+}
+
+.music-control {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 9999;
+    background: #212529;
+    color: #d6d6d6;
+    border: 1px solid #495057;
+    padding: 7px 12px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.music-control:hover {
+    background: #343a40;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="UserInit" tags="" position="800,200" size="100,100">(set: $loopCount to 1)
 (set: $gameStarted to false)
 (set: $knows_ledger_error to false)
 (set: $knows_pipe_location to false)
@@ -111,43 +180,13 @@ div[style*="border-bottom"] {
 (set: $bongSentAway to false)
 (set: $bongLingering to false)
 (set: $tanodStalled to false)
-</tw-passagedata><tw-passagedata pid="3" name="Header" tags="header" position="600,600" size="100,100">(if: (passage:)&#39;s name is not &quot;Main Menu&quot; and (passage:)&#39;s name is not &quot;How to Play&quot; and (passage:)&#39;s name is not &quot;Victory - Out of Stock&quot; and (passage:)&#39;s name is not &quot;Victory - Peaceful Survival&quot;)[
+</tw-passagedata><tw-passagedata pid="3" name="Header" tags="header" position="500,200" size="100,100">(if: (passage:)&#39;s name is not &quot;Main Menu&quot; and (passage:)&#39;s name is not &quot;How to Play&quot; and (passage:)&#39;s name is not &quot;Victory - Out of Stock&quot; and (passage:)&#39;s name is not &quot;Victory - Peaceful Survival&quot;)[
   &lt;div style=&quot;border-bottom: 2px solid #555; padding-bottom: 8px; margin-bottom: 15px; font-family: monospace; font-size: 0.9em; display: flex; justify-content: space-between;&quot;&gt;
     &lt;span&gt;&lt;b&gt;TIME:&lt;/b&gt; $time&lt;/span&gt;
     &lt;span&gt;&lt;b&gt;NIGHT:&lt;/b&gt; Loop #$loopCount&lt;/span&gt;
     &lt;span&gt;[[Main Menu]]&lt;/span&gt;
   &lt;/div&gt;
-]</tw-passagedata><tw-passagedata pid="4" name="Main Menu" tags="" position="300,500" size="100,100">(if: $loopCount is 0 or $loopCount is not a number)[(display: &quot;UserInit&quot;)]
-&lt;div style=&quot;max-width: 650px; margin: 0 auto; text-align: center; font-family: &#39;Courier New&#39;, monospace;&quot;&gt;
-  &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_neng_pipe_gin_exposed.jpg&quot; alt=&quot;Sari-sari store counter at night&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
-  &lt;h1 style=&quot;color: #ffb703; font-size: 2.2em; margin-top: 15px;&quot;&gt;Pabili Po&lt;/h1&gt;
-  &lt;h3 style=&quot;color: #8d99ae; font-size: 1.1em; margin-top: -10px;&quot;&gt;&lt;i&gt;A Sari-Sari Store Story&lt;/i&gt;&lt;/h3&gt;
-  &lt;p style=&quot;color: #adb5bd; font-size: 0.9em; margin: 25px 0;&quot;&gt;
-    It&#39;s 9:00 PM. You have one hour before Mang Boy arrives at your store window.&lt;br&gt;
-    An argument over a ₱50 debt will explode into violence at 10:00 PM.&lt;br&gt;
-    &lt;b&gt;Find the right chain of actions to break the loop and survive the night.&lt;/b&gt;
-  &lt;/p&gt;
-  &lt;hr style=&quot;border: 0; height: 1px; background: #495057; margin: 25px 0;&quot;&gt;
-  |startLink&gt;[
-    (if: $gameStarted is false)[      &lt;div style=&quot;font-size: 1.3em; margin: 15px 0;&quot;&gt;        [[•• START NIGHT 1 ••-&gt;Start]]      &lt;/div&gt;
-    ](else:)[
-      &lt;div style=&quot;font-size: 1.3em; margin: 10px 0;&quot;&gt;       [[•• RESUME LOOP #$loopCount ••-&gt;Start]]      &lt;/div&gt;    ]  ]
-  &lt;div style=&quot;font-size: 1em; margin-top: 15px;&quot;&gt;
-    [[How to Play]]
-  &lt;/div&gt;
-  |resetOption&gt;[
-    (if: $gameStarted is true)[
-      &lt;div style=&quot;font-size: 0.85em; margin-top: 15px;&quot;&gt;
-        (link: &quot;Reset Game Progress&quot;)[          (display: &quot;UserInit&quot;)          (replace: ?startLink)[
-            &lt;div style=&quot;font-size: 1.3em; margin: 15px 0;&quot;&gt;              [[•• START NIGHT 1 ••-&gt;Start]]
-            &lt;/div&gt;          ]
-          (replace: ?resetOption)[
-            &lt;br&gt;&lt;span style=&quot;color: #e63946;&quot;&gt;Progress reset. Click Start above.&lt;/span&gt;          ]        ]      &lt;/div&gt;    ]  ]
-
-  &lt;div style=&quot;margin-top: 30px; font-size: 0.75em; color: #6c757d;&quot;&gt;
-    Harlowe 3 • A Time-Loop Narrative
-  &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="How to Play" tags="" position="300,300" size="100,100">&lt;div style=&quot;max-width: 650px; margin: 0 auto; font-family: &#39;Courier New&#39;, monospace;&quot;&gt;
+]</tw-passagedata><tw-passagedata pid="4" name="How to Play" tags="" position="300,200" size="100,100">&lt;div style=&quot;max-width: 650px; margin: 0 auto; font-family: &#39;Courier New&#39;, monospace;&quot;&gt;
   &lt;h2 style=&quot;color: #ffb703;&quot;&gt;HOW TO PLAY&lt;/h2&gt; 
   &lt;ul&gt;
     &lt;li&gt;&lt;b&gt;Time Management:&lt;/b&gt; You have 1 hour (from 9:00 PM to 10:00 PM) before the climax occurs. Every major decision or interaction advances the time clock.&lt;/li&gt;
@@ -159,7 +198,7 @@ div[style*="border-bottom"] {
   &lt;div style=&quot;text-align: center; font-size: 1.1em;&quot;&gt;
     [[Back to Main Menu-&gt;Main Menu]]
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Start" tags="" position="300,900" size="100,100">(set: $gameStarted to true)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="300,900" size="100,100">(set: $gameStarted to true)
 (set: $time to &quot;9:00 PM&quot;)
 &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_neng_pipe_gin_exposed.jpg&quot; alt=&quot;Sari-sari store counter at night&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 The heavy hum of the refrigerator fills the small wooden booth. Outside, the streetlights flicker over flooded asphalt. You wipe down the glass display jars with a damp rag.
@@ -172,7 +211,7 @@ The heavy hum of the refrigerator fills the small wooden booth. Outside, the str
 (if: $loopCount &gt; 1 and not $ginHidden)[  [[• Hide the Kwatro Kantos bottle under the counter-&gt;Action - Hide Gin at 9:00]]]
 (if: $failed_pipe and not $knows_pipe_location and not $pipeHidden)[  [[• Inspect the outer bench area-&gt;9:10 PM - Bench Inspected]]]
 (if: $knows_pipe_location and not $pipeHidden)[  [[• Hide the iron pipe-&gt;Action - Hide Pipe at 9:00]]]
-(if: ($knows_bong_tab_error or $knows_ledger_error) and not $ledgerCorrected)[  [[• Correct the ₱50 entry on Mang Boy&#39;s ledger page-&gt;Action - Fix Ledger at 9:00]]]</tw-passagedata><tw-passagedata pid="7" name="Action - Fix Ledger at 9:00" tags="" position="600,925" size="100,100">(set: $time to &quot;9:10 PM&quot;)
+(if: ($knows_bong_tab_error or $knows_ledger_error) and not $ledgerCorrected)[  [[• Correct the ₱50 entry on Mang Boy&#39;s ledger page-&gt;Action - Fix Ledger at 9:00]]]</tw-passagedata><tw-passagedata pid="6" name="Action - Fix Ledger at 9:00" tags="" position="600,925" size="100,100">(set: $time to &quot;9:10 PM&quot;)
 (set: $ledgerCorrected to true)
 You open the listahan ng utang, cross out the ₱50 Fortune cigarette entry on Mang Boy&#39;s page, and re-balance his total debt to ₱420.
 
@@ -180,7 +219,7 @@ You open the listahan ng utang, cross out the ₱50 Fortune cigarette entry on M
 
 ---
 
-[[• Wait for a customer-&gt;9:15 PM - Marites]]</tw-passagedata><tw-passagedata pid="8" name="Action - Hide Gin at 9:00" tags="" position="600,775" size="100,100">(set: $time to &quot;9:10 PM&quot;)
+[[• Wait for a customer-&gt;9:15 PM - Marites]]</tw-passagedata><tw-passagedata pid="7" name="Action - Hide Gin at 9:00" tags="" position="600,775" size="100,100">(set: $time to &quot;9:10 PM&quot;)
 (set: $ginHidden to true)
 Remembering how Mang Boy comes looking for alcohol, you pull the remaining 2  Kwatro Kantos bottles off the display shelf and stash it under the lower counter shelf out of sight.
 
@@ -188,7 +227,7 @@ Remembering how Mang Boy comes looking for alcohol, you pull the remaining 2  Kw
 
 ---
 
-[[• Wait for a customer-&gt;9:15 PM - Marites]]</tw-passagedata><tw-passagedata pid="9" name="Action - Hide Pipe at 9:00" tags="" position="600,1075" size="100,100">(set: $time to &quot;9:10 PM&quot;)
+[[• Wait for a customer-&gt;9:15 PM - Marites]]</tw-passagedata><tw-passagedata pid="8" name="Action - Hide Pipe at 9:00" tags="" position="600,1075" size="100,100">(set: $time to &quot;9:10 PM&quot;)
 (set: $pipeHidden to true)
 You slip out the side door, grab the heavy iron pipe leaning against the outer bench. You look around where to put it and hide it safely behind the ice chest inside.
 
@@ -196,8 +235,8 @@ You slip out the side door, grab the heavy iron pipe leaning against the outer b
 
 ---
 
-[[• Wait for a customer-&gt;9:15 PM - Marites]]</tw-passagedata><tw-passagedata pid="10" name="9:15 PM - Marites" tags="" position="900,900" size="100,100">(set: $time to &quot;9:15 PM&quot;)
-&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_marites.jpg&quot; alt=&quot;Sari-sari store window&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
+[[• Wait for a customer-&gt;9:15 PM - Marites]]</tw-passagedata><tw-passagedata pid="9" name="9:15 PM - Marites" tags="" position="900,900" size="100,100">(set: $time to &quot;9:15 PM&quot;)
+&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_marites.jpg&quot; alt=&quot;Aling Marites&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 Aling Marites walks up, clutching her coin purse while fanning herself with a folded magazine.
 
 &quot;Neng, pabili nga ng double A battery,&quot; she says, peering through the wire mesh.
@@ -211,7 +250,7 @@ As she pays, a ₱20 bill falls under the bench from her purse.
 (if: not ($knows_bong_tab_error or $knows_ledger_error or $talked_marites_gossip))[ [[• Maki-siyete-&gt;9:15 PM - Dialogue: Maki-siyete]]]
 (if: $loopCount &gt; 1 and not $maritesHelped and not $hasPocketMoney)[ [[• Wait for Aling Marites to leave and take the ₱20 bill for yourself-&gt;Pocket Money]]]
 (if: $loopCount &gt; 1 and $talked_marites_gossip and not ($knows_bong_tab_error or $knows_ledger_error or $ledgerCorrected))[  [[• Ask her about her conversation with your tatay yesterday-&gt;9:15 PM - Dialogue: Marites Tatay]]]
-(if: $loopCount &gt; 1 and $maritesHelped and not $hasPocketMoney)[  [[• Remind her about the ₱20 bill under the bench-&gt;9:15 PM - Dialogue: Remind Bill]]]</tw-passagedata><tw-passagedata pid="11" name="9:10 PM - Bench Inspected" tags="" position="600,1225" size="100,100">(set: $time to &quot;9:10 PM&quot;)
+(if: $loopCount &gt; 1 and $maritesHelped and not $hasPocketMoney)[  [[• Remind her about the ₱20 bill under the bench-&gt;9:15 PM - Dialogue: Remind Bill]]]</tw-passagedata><tw-passagedata pid="10" name="9:10 PM - Bench Inspected" tags="" position="600,1225" size="100,100">(set: $time to &quot;9:10 PM&quot;)
 You look through the wire mesh. An iron pipe is leaning right against the wooden bench where customers sit. You now know exactly where Mang Boy finds his weapon.
 (set: $knows_pipe_location to true)
 
@@ -220,7 +259,7 @@ You look through the wire mesh. An iron pipe is leaning right against the wooden
 ---
 
 [[• Hide the iron pipe-&gt;Action - Hide Pipe at 9:00]]
-[[• Return to the counter and mind the store-&gt;9:15 PM - Marites]]</tw-passagedata><tw-passagedata pid="12" name="9:25 PM - Gin Stashed" tags="" position="1200,1000" size="100,100">(set: $time to &quot;9:25 PM&quot;)
+[[• Return to the counter and mind the store-&gt;9:15 PM - Marites]]</tw-passagedata><tw-passagedata pid="11" name="9:25 PM - Gin Stashed" tags="" position="1200,1000" size="100,100">(set: $time to &quot;9:25 PM&quot;)
 (set: $ginHidden to true)
 You grab the last 2 gin bottles from the display and stash it under the bottom wooden counter sill out of view.
 
@@ -228,7 +267,7 @@ You grab the last 2 gin bottles from the display and stash it under the bottom w
 
 ---
 
-[[• Wait for the next customer-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="13" name="9:40 PM - Ledger Fixed" tags="" position="2100,900" size="100,100">(set: $time to &quot;9:40 PM&quot;)
+[[• Wait for the next customer-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="12" name="9:40 PM - Ledger Fixed" tags="" position="2100,900" size="100,100">(set: $time to &quot;9:40 PM&quot;)
 (set: $ledgerCorrected to true)
 &lt;div class=&quot;ledger-page&quot;&gt;
   &lt;div class=&quot;ledger-title&quot;&gt;LISTAHAN NG UTANG&lt;/div&gt; 
@@ -244,8 +283,8 @@ You grab the last 2 gin bottles from the display and stash it under the bottom w
 
 ---
 
-[[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="14" name="9:30 PM - Bong" tags="" position="1900,900" size="100,100">(set: $time to &quot;9:30 PM&quot;)
-&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_bong.jpg&quot; alt=&quot;Teenager at store counter&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
+[[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="13" name="9:30 PM - Bong" tags="" position="1900,900" size="100,100">(set: $time to &quot;9:30 PM&quot;)
+&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_bong.jpg&quot; alt=&quot;Bong&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 Bong slaps his palm against the counter mesh. He is breathing fast and sweating.
 
 &quot;Neng, pasuyo naman ng lighter. Makikisindi. Saka nakakita ka ba ng puting aso? Kanina pa nawawala si Browny e!&quot;
@@ -255,7 +294,7 @@ Bong slaps his palm against the counter mesh. He is breathing fast and sweating.
 [[• Hand him the lighter-&gt;9:30 PM - Dialogue: Bong Lingers]]
 (if: not ($failed_pipe or $knows_pipe_location))[  [[• Scold him for asking for a light without buying-&gt;9:30 PM - Dialogue: Bong Scolded]]]
 (if: $knows_bong_tab_error)[  [[• Ask Bong about the ₱50 yosi tab-&gt;9:30 PM - Bong Confronted]]]
-(if: $loopCount &gt; 1 and $knows_pipe_location)[  [[• Tell Bong you saw his dog being chased by kids-&gt;9:30 PM - Dialogue: Bong Sent Away]]]</tw-passagedata><tw-passagedata pid="15" name="9:30 PM - Bong Confronted" tags="" position="2100,750" size="100,100">(set: $time to &quot;9:30 PM&quot;)
+(if: $loopCount &gt; 1 and $knows_pipe_location)[  [[• Tell Bong you saw his dog being chased by kids-&gt;9:30 PM - Dialogue: Bong Sent Away]]]</tw-passagedata><tw-passagedata pid="14" name="9:30 PM - Bong Confronted" tags="" position="2100,750" size="100,100">(set: $time to &quot;9:30 PM&quot;)
 (set: $knows_ledger_error to true)
 Bong flinches. &quot;A-eh... sinabi ko kay Mang Noli ipalista muna! Sabi niya sige daw!&quot;
 
@@ -266,8 +305,8 @@ When you tell him your tatay accidentally put the tab under Mang Boy&#39;s page,
 ---
 
 [[• Wait for the next customer-&gt;9:45 PM - Tanod]]
-(if: ($knows_bong_tab_error or $knows_ledger_error) and not $ledgerCorrected)[  [[• Open the listahan and correct the ₱50 error now-&gt;9:40 PM - Ledger Fixed]]]</tw-passagedata><tw-passagedata pid="16" name="9:45 PM - Tanod" tags="" position="2300,900" size="100,100">(set: $time to &quot;9:45 PM&quot;)
-&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_totoy.jpg&quot; alt=&quot;Tanod on patrol&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
+(if: ($knows_bong_tab_error or $knows_ledger_error) and not $ledgerCorrected)[  [[• Open the listahan and correct the ₱50 error now-&gt;9:40 PM - Ledger Fixed]]]</tw-passagedata><tw-passagedata pid="15" name="9:45 PM - Tanod" tags="" position="2300,900" size="100,100">(set: $time to &quot;9:45 PM&quot;)
+&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_totoy.jpg&quot; alt=&quot;Mang Totoy, the tanod&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 Mang Totoy, the tanod, wipes sweat from his forehead with a small hand towel and leans against your counter wire.
 
 &quot;Isang Fortune nga, Neng. Pasindi na rin. Maalinsangan, no?&quot;
@@ -276,7 +315,7 @@ Mang Totoy, the tanod, wipes sweat from his forehead with a small hand towel and
 
 [[• Sell cigarette-&gt;10:00 PM - The Climax]]
 [[• Ask about his patrol schedule-&gt;9:45 PM - Dialogue: Tanod Schedule]]
-(if: $loopCount &gt; 1 and $tanodSched)[  [[• Offer to brew him a hot coffee-&gt;9:45 PM - Dialogue: Tanod Stalled]]]</tw-passagedata><tw-passagedata pid="17" name="10:00 PM - The Climax" tags="" position="2900,900" size="100,100">(set: $time to &quot;9:58 PM&quot;)
+(if: $loopCount &gt; 1 and $tanodSched)[  [[• Offer to brew him a hot coffee-&gt;9:45 PM - Dialogue: Tanod Stalled]]]</tw-passagedata><tw-passagedata pid="16" name="10:00 PM - The Climax" tags="" position="2900,900" size="100,100">(set: $time to &quot;9:58 PM&quot;)
 &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 Mang Boy slams his heavy, grease-stained fist on the wooden counter frame. His breath smells of cheap alcohol.
 
@@ -286,7 +325,7 @@ Mang Boy slams his heavy, grease-stained fist on the wooden counter frame. His b
 
 (if: $ledgerCorrected)[  [[• Remind him of his debt-&gt;Climax - Show Corrected Ledger]]
 ](else:)[  [[• Remind him that he still owes ₱470 on his tab-&gt;Climax - Mention Debt]]]
-(if: $ginHidden)[  [[• Tell Mang Boy you ran out of alcohol-&gt;Climax - Lie About Gin]]]</tw-passagedata><tw-passagedata pid="18" name="Climax - Lie About Gin" tags="" position="3200,600" size="100,100">He squints through the wire mesh, searching the empty display shelves where the Kwatro Kantos usually sits.
+(if: $ginHidden)[  [[• Tell Mang Boy you ran out of alcohol-&gt;Climax - Lie About Gin]]]</tw-passagedata><tw-passagedata pid="17" name="Climax - Lie About Gin" tags="" position="3200,600" size="100,100">He squints through the wire mesh, searching the empty display shelves where the Kwatro Kantos usually sits.
 
 (if: $tanodStalled)[
   (goto: &quot;Victory - Out of Stock&quot;)
@@ -303,13 +342,15 @@ Mang Boy slams his heavy, grease-stained fist on the wooden counter frame. His b
 ](else:)[
   His eyes narrow angrily as he spots the empty shelf. &quot;Sinungaling! Tinatago mo lang sa &#39;kin alak nyo, noh!&quot;
   &lt;br&gt;&lt;br&gt;
-  [[• He reaches through the screen to force his way inside...-&gt;Failure - Gin Hidden Escalation]]]</tw-passagedata><tw-passagedata pid="19" name="Climax - Mention Debt" tags="" position="2600,600" size="100,100">His eyes flare up. &quot;Ano &#39;yan?! ₱420 lang &#39;yung utang ko kahapon! Ginagago niyo akong mag-ama!&quot;
+  [[• He reaches through the screen to force his way inside...-&gt;Failure - Gin Hidden Escalation]]]</tw-passagedata><tw-passagedata pid="18" name="Climax - Mention Debt" tags="" position="2600,600" size="100,100">&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
+His eyes flare up. &quot;Ano &#39;yan?! ₱420 lang &#39;yung utang ko kahapon! Ginagago niyo akong mag-ama!&quot;
 
 ---
 (if: $ledgerCorrected)[  [[• You tell him you corrected the listahan.-&gt;Climax - Show Corrected Ledger]]
 ](else:)[  (if: not $pipeHidden)[    [[• You step back as Mang Boy begins to look around...-&gt;Failure - Iron Pipe Left Out]]
   ](else:)[    [[• He spots the unchanged listahan and snaps...-&gt;Failure - Uncorrected Ledger]]  ]]
-(if: $tanodStalled)[  [[• Look at Mang Totoy and signal for help-&gt;Climax - Tanod Backup]]]</tw-passagedata><tw-passagedata pid="20" name="Climax - Show Corrected Ledger" tags="" position="2900,600" size="100,100">You explained to him about the debt mix up between him and Bong which you already corrected. But he still owes ₱420.
+(if: $tanodStalled)[  [[• Look at Mang Totoy and signal for help-&gt;Climax - Tanod Backup]]]</tw-passagedata><tw-passagedata pid="19" name="Climax - Show Corrected Ledger" tags="" position="2900,600" size="100,100">&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
+You explained to him about the debt mix up between him and Bong which you already corrected. But he still owes ₱420.
 
 He blinks, leans down, and squints at the open notebook.
 
@@ -331,7 +372,7 @@ His aggressive posture softens slightly.
 ](else:)[
   Even though the ledger is fixed, there are no witnesses around to keep him in line. His eyes wander down toward the bench...
 
-  [[• Mang Boy grabs the heavy iron pipe and forces his way in...-&gt;Failure - No Tanod Backup]]]</tw-passagedata><tw-passagedata pid="21" name="Victory - Out of Stock" tags="" position="500,200" size="100,100">(set: $time to &quot;10:01 PM&quot;)
+  [[• Mang Boy grabs the heavy iron pipe and forces his way in...-&gt;Failure - No Tanod Backup]]]</tw-passagedata><tw-passagedata pid="20" name="Victory - Out of Stock" tags="" position="500,400" size="100,100">(set: $time to &quot;10:01 PM&quot;)
 (set: $gameStarted to false)
 (set: $loopCount to 1)
 Mang Totoy, sitting on the bench, looks up and laughs. &quot;Ubos na pala, Boy! Uwi ka na, gabi na rin!&quot;
@@ -347,7 +388,7 @@ You watch him vanish into the dark alley as the wall clock ticks to 10:01 PM. Th
 &lt;hr style=&quot;border: 0; height: 1px; background: #495057; margin: 25px 0;&quot;&gt;
 &lt;div style=&quot;text-align: center;&quot;&gt;
   [[Return to Main Menu-&gt;Main Menu]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Victory - Peaceful Survival" tags="" position="600,400" size="100,100">(set: $time to &quot;10:01 PM&quot;)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Victory - Peaceful Survival" tags="" position="500,600" size="100,100">(set: $time to &quot;10:01 PM&quot;)
 (set: $gameStarted to false)
 (set: $loopCount to 1)
 Mang Totoy, sitting on the bench, smiles and waves his hand. &quot;Oy, Boy, magbayad ka muna bago ka umutang ulit.&quot;
@@ -358,38 +399,39 @@ You hand him the bottle and take his payment cleanly. Mang Totoy offered to esco
 
 &lt;br&gt;&lt;br&gt;
 &lt;h1 style=&quot;color: #2ec4b6;&quot;&gt;LOOP BROKEN — YOU SURVIVED THE NIGHT PEACEFULLY&lt;/h1&gt;
-&lt;p style=&quot;color: #adb5bd;&quot;&gt;With the Tanod, Mang Totoy there, Mang Boy was successfully sent home. Ang he paid his debt. You de-escalated the situation completely.&lt;/p&gt;
+&lt;p style=&quot;color: #adb5bd;&quot;&gt;With the Tanod, Mang Totoy there, Mang Boy was successfully sent home. And he paid his debt.&lt;br&gt;
+You de-escalated the situation completely.&lt;/p&gt;
 
 &lt;hr style=&quot;border: 0; height: 1px; background: #495057; margin: 25px 0;&quot;&gt;
 &lt;div style=&quot;text-align: center;&quot;&gt;
   [[Return to Main Menu-&gt;Main Menu]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="Failure - Gin Hidden Escalation" tags="" position="3200,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Failure - Gin Hidden Escalation" tags="" position="3200,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
 Convinced that you are refusing to sell to him on purpose, Mang Boy&#39;s paranoid drunken rage triggers. Without a witness around to stop him, he grabs the side of the wooden counter sill and rips open the wire screen by main force.
 
 The glass jars smash onto the floor as he reaches inside to grab you.
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="24" name="Failure - Iron Pipe Left Out" tags="" position="2300,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="23" name="Failure - Iron Pipe Left Out" tags="" position="2300,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
 (set: $failed_pipe to true)
 (set: $knows_pipe_location to true)
 Even though you try to explain, Mang Boy&#39;s temper flares. He looks down at his feet and spots the heavy iron pipe leaning right against the wooden bench.
 
 Without hesitation, he scoots the pipe into his right hand, swings it upward, and smashes straight through the glass display cases. The wooden structure collapses on top of you.
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="25" name="Failure - No Tanod Backup" tags="" position="3000,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="24" name="Failure - No Tanod Backup" tags="" position="3000,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
 You managed to fix the ledger and hide the iron pipe, but with the street completely deserted at 10:00 PM, Mang Boy feels emboldened. Realizing there are no witnesses around, he grabs you by the collar through the window screen, demanding the gin bottle by force.
 
 A desperate struggle breaks out across the counter sills, knocking over the heavy gas stove behind you.
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You... -&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="26" name="Failure - Uncorrected Ledger" tags="" position="2500,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+[[•• It&#39;s not too late! You... -&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="25" name="Failure - Uncorrected Ledger" tags="" position="2500,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
 You show Mang Boy the &lt;i&gt;listahan&lt;/i&gt; showing a ₱470 balance. 
 
 &quot;Puta!&quot; he roars, slamming his palm against the wooden frame. &quot;Sabi ng tatay mo kahapon aayusin n&#39;ya &#39;yan! Niloloko niyo akong mag-ama!&quot;
 
 Before you can explain, his anger boils over. He grabs a heavy glass bottle from the display shelf and smashes it against the counter.
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="27" name="Loop Reset" tags="" position="2800,100" size="100,100">(set: $loopCount to it + 1)
+[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="26" name="Loop Reset" tags="" position="2900,100" size="100,100">(set: $loopCount to it + 1)
 (display: &quot;Reset Variables&quot;)
-(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="28" name="9:15 PM - Dialogue: Marites Tatay" tags="" position="1200,1150" size="100,100">(set: $knows_bong_tab_error to true)
+(goto: &quot;Start&quot;)</tw-passagedata><tw-passagedata pid="27" name="9:15 PM - Dialogue: Marites Tatay" tags="" position="1200,1150" size="100,100">(set: $knows_bong_tab_error to true)
 She looks at you a bit confused, probably wondering how you know, but recovers.
 
 Aling Marites fans herself faster and leans in close. &quot;Ay, naku, Neng! Kahapon kasi, umutang si Bong ng sigarilyo. Palista daw muna sa tatay mo. Eh, nagmamadali ang tatay mo kahapon. Hay naku, &#39;yang si Bong, wala na ngang trabaho utang pa ng utang!&quot;
@@ -398,7 +440,7 @@ Aling Marites fans herself faster and leans in close. &quot;Ay, naku, Neng! Kaha
 
 ---
 
-[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="29" name="9:15 PM - Dialogue: Remind Bill" tags="" position="1200,850" size="100,100">(set: $maritesHelped to true)
+[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="28" name="9:15 PM - Dialogue: Remind Bill" tags="" position="1200,850" size="100,100">(set: $maritesHelped to true)
 She gasps, kneels down quickly, and picks up the bill. &quot;Aba&#39;y salamat sinabi mo, Neng! Napakabait mong bata. Muntik pa mawala pang-tong its ko!&quot;
 
 She smiles warmly as she tucks it back into her purse.
@@ -408,7 +450,7 @@ Aling Marites walks away down the alley. You have a few quiet minutes.
 ---
 
 [[• Wait for the next customer-&gt;9:20 PM - Nestor]]
-(if: $loopCount &gt; 1 and not $ginHidden)[  [[• Quickly stash the 2 gin bottles-&gt;9:25 PM - Gin Stashed]]]</tw-passagedata><tw-passagedata pid="30" name="9:15 PM - Dialogue: Maki-siyete" tags="" position="1200,700" size="100,100">(set: $talked_marites_gossip to true)
+(if: $loopCount &gt; 1 and not $ginHidden)[  [[• Quickly stash the 2 gin bottles-&gt;9:25 PM - Gin Stashed]]]</tw-passagedata><tw-passagedata pid="29" name="9:15 PM - Dialogue: Maki-siyete" tags="" position="1200,700" size="100,100">(set: $talked_marites_gossip to true)
 You greet her, asking about her day. You hand her the AA batteries and take her payment. You ready yourself for the gossip you know will be spilling from her mouth.
 
 Aling Marites eyes light up. &quot;Naku, alam mo ba si Boy,nandun sa talyer, mainit na naman ang ulo. Amoy alak pa. Naka-inom nanaman!&quot;
@@ -419,13 +461,13 @@ She smiles at you and turns to leave.
 
 ---
 
-[[• Wait for the next customer-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="31" name="9:15 PM - Dialogue: Sell Battery" tags="" position="1200,550" size="100,100">You hand her two AA batteries and take her payment.
+[[• Wait for the next customer-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="30" name="9:15 PM - Dialogue: Sell Battery" tags="" position="1200,550" size="100,100">You hand her two AA batteries and take her payment.
 
 &quot;Salamat, Neng,&quot; she says, wiping her forehead with her fan.
 
 ---
 
-[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="32" name="9:30 PM - Dialogue: Bong Sent Away" tags="" position="2100,1200" size="100,100">(set: $bongSentAway to true)
+[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="31" name="9:30 PM - Dialogue: Bong Sent Away" tags="" position="2100,1200" size="100,100">(set: $bongSentAway to true)
 &lt;p style=&quot;color: #48cae4;&quot;&gt;&lt;i&gt;You remember how he chased the kids and his dog in the previous loop.&lt;/i&gt;&lt;/p&gt;
 
 You tell him you saw his dog being chased by kids near the basketball court.
@@ -434,7 +476,7 @@ Bong&#39;s eyes widen. &quot;Awit! Sige, Neng, salamat! Puntahan ko lang!&quot; 
 
 ---
 
-[[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="33" name="9:30 PM - Dialogue: Bong Lingers" tags="" position="2100,600" size="100,100">(set: $bongLingering to true)
+[[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="32" name="9:30 PM - Dialogue: Bong Lingers" tags="" position="2100,600" size="100,100">(set: $bongLingering to true)
 You tell him you did not see his dog and hand him the lighter.
 
 Bong sighs, sits down on the bench outside, and lights his cigarette.
@@ -445,25 +487,25 @@ Bong seemed to have forgotten about his lost dog.
 
 ---
 
-[[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="34" name="9:45 PM - Dialogue: Tanod Stalled" tags="" position="2600,1100" size="100,100">(set: $tanodStalled to true)
+[[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="33" name="9:45 PM - Dialogue: Tanod Stalled" tags="" position="2600,1100" size="100,100">(set: $tanodStalled to true)
 You offered Mang Totoy a hot 3-in-1 coffee to help his shift.
 
 Mang Totoy grins and wipes his neck. &quot;Naku, salamat Neng! Sakto, medyo kumakabit ang pagod ko sa ronda.&quot; He sits comfortably on the outer bench and sips the coffee.
 
 ---
 
-[[• Wait for the next customer-&gt;10:00 PM - The Climax]]</tw-passagedata><tw-passagedata pid="35" name="9:45 PM - Dialogue: Tanod Schedule" tags="" position="2600,950" size="100,100">(set: $tanodSched to true)
+[[• Wait for the next customer-&gt;10:00 PM - The Climax]]</tw-passagedata><tw-passagedata pid="34" name="9:45 PM - Dialogue: Tanod Schedule" tags="" position="2600,950" size="100,100">(set: $tanodSched to true)
 You ask Mang Totoy how long his ronda will be tonight
 
 &quot;Hanggang ala-una lang, tapos uwian na.&quot; He lights his cigarette and takes a few puffs.
 
 &quot;Sige, Neng, bukas ulit.&quot; He nods and slowly walks off into the dark alley.
 
-&lt;i&gt;[Knowledge gained: Mang Totoy will still be on duty until 1 AM.]&lt;/i&gt;
+&lt;i&gt;[Information acquired: Mang Totoy will still be on duty until 1 AM.]&lt;/i&gt;
 
 ---
 
-[[• Wait for the next customer-&gt;10:00 PM - The Climax]]</tw-passagedata><tw-passagedata pid="36" name="9:30 PM - Dialogue: Bong Scolded" tags="" position="2100,1050" size="100,100">(set: $bongLingering to true)
+[[• Wait for the next customer-&gt;10:00 PM - The Climax]]</tw-passagedata><tw-passagedata pid="35" name="9:30 PM - Dialogue: Bong Scolded" tags="" position="2100,1050" size="100,100">(set: $bongLingering to true)
 &quot;Sungit,&quot; he mutters, pulling his hand back. But he doesn&#39;t leave. Instead he sits down heavily on the outer wooden bench, swinging his legs and picking up the iron pipe under the bench and swinging it a few times, pretending he&#39;s a swordsman.
 
 Then he spots his dog near the basketball court being chased by kids. &quot;Hoy! &#39;Nak &#39;nam... Aso ko &#39;yan!&quot;
@@ -472,7 +514,7 @@ He leans the pipe next to the wooden bench and sprints after them.
 
 ---
 
-[[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="37" name="Pocket Money" tags="" position="1200,1300" size="100,100">(set: $hasPocketMoney to true)
+[[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="36" name="Pocket Money" tags="" position="1200,1300" size="100,100">(set: $hasPocketMoney to true)
 You hand her two AA batteries through the wire mesh and keep quiet about the money.
 
 Aling Marites pays, fans herself, and walks away down the dark alley without noticing. As soon as she&#39;s gone, you slip outside, pick up the crumpled ₱20 bill from under the bench, and pocket it.
@@ -481,7 +523,7 @@ Aling Marites pays, fans herself, and walks away down the dark alley without not
 
 ---
 
-[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="38" name="Failure - Exposed Lie" tags="" position="3400,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="37" name="Failure - Exposed Lie" tags="" position="3400,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
 (set: $nestorSnitched to true)
 As Mang Boy reaches the end of the alley, he pauses to light a cigarette. 
 
@@ -497,30 +539,30 @@ Slowly, Mang Boy turns back around and walks toward your store, his face twisted
 
 He roars at you, raising the pipe high...
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="39" name="9:20 PM - Nestor" tags="" position="1500,900" size="100,100">(set: $time to &quot;9:20 PM&quot;)
-&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_nestor.jpg&quot; alt=&quot;Customer at counter&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
+[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="38" name="9:20 PM - Nestor" tags="" position="1500,900" size="100,100">(set: $time to &quot;9:20 PM&quot;)
+&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_nestor.jpg&quot; alt=&quot;Mang Nestor&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 Mang Nestor walks up to the display counter, clutching a worn ₱1000 bill.
 
-&quot;Neng, pabili nga ng isang Kwatro Kantos. Pampapatulog lang, medyo masakit ang balakang ko sa trabaho eh.&quot;
+&quot;Neng, pabili nga ng isang Kwatro gin. Pampapatulog lang, medyo masakit ang balakang ko sa trabaho eh.&quot;
 
 Seeing his ₱1000  bill you look at your small money drawer, the few bills might be enough for change...
 
 ---
 
 (if: $ginHidden)[
-  [[• Sell him the Kwatro Kantos from under the counter-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]&lt;br&gt;
+  [[• Sell him the alcohol from under the counter-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]&lt;br&gt;
   [[• Tell Nestor you are out of stock-&gt;9:20 PM - Dialogue: Refuse Nestor]]&lt;br&gt;
 ](else:)[
-  [[• Sell him the Kwatro Kantos from the display shelf-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]&lt;br&gt;]
-  [[• Tell Nestor you don&#39;t have enough change for ₱1000-&gt;9:20 PM - Dialogue: Refuse Nestor]]&lt;br&gt;</tw-passagedata><tw-passagedata pid="40" name="9:20 PM - Dialogue: Sell Gin to Nestor" tags="" position="1700,800" size="100,100">(set: $ginSoldToNestor to true)
+  [[• Sell him the gin from the display shelf-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]&lt;br&gt;]
+  [[• Tell Nestor you don&#39;t have enough change for ₱1000-&gt;9:20 PM - Dialogue: Refuse Nestor]]&lt;br&gt;</tw-passagedata><tw-passagedata pid="39" name="9:20 PM - Dialogue: Sell Gin to Nestor" tags="" position="1700,800" size="100,100">(set: $ginSoldToNestor to true)
 (set: $ginHidden to false)
 You hand Nestor the Kwatro Kantos bottle, take his payment and give him his change. He smiles, nods gratefully, and walks down the street.
 
-&lt;i&gt;[Item Sold: You sold 1 Kwatro Kantos but you still have 1 on stock]&lt;/i&gt;
+&lt;i&gt;[Item Sold: You sold 1 Kwatro gin but you still have 1 on stock]&lt;/i&gt;
 
 ---
 
-[[• Rest behind the counter-&gt;9:30 PM - Bong]]</tw-passagedata><tw-passagedata pid="41" name="9:20 PM - Dialogue: Refuse Nestor" tags="" position="1700,1000" size="100,100">(if: $nestorSnitched)[
+[[• Rest behind the counter-&gt;9:30 PM - Bong]]</tw-passagedata><tw-passagedata pid="40" name="9:20 PM - Dialogue: Refuse Nestor" tags="" position="1700,1000" size="100,100">(if: $nestorSnitched)[
   &lt;p style=&quot;color: #48cae4;&quot;&gt;&lt;i&gt;You remember him snitching on you to Mang Boy after you sold him gin. You may want his money, but he can&#39;t be trusted.&lt;/i&gt;&lt;/p&gt;
 
   You tell Mang Nestor that you don&#39;t have any Kwatro Kantos left to sell.
@@ -534,7 +576,7 @@ You hand Nestor the Kwatro Kantos bottle, take his payment and give him his chan
 
 ---
 
-[[• Rest behind the counter-&gt;9:30 PM - Bong]]</tw-passagedata><tw-passagedata pid="42" name="9:15 PM - Dialogue: Refused to Sell Battery" tags="" position="1200,400" size="100,100">Aling Marites fans herself as she walks away grumbling, &quot;Ano ba &#39;yan. Sa&#39;n naman ako maghahanap ng baterya ng remote ngayon? Susmaryosep.&quot;
+[[• Rest behind the counter-&gt;9:30 PM - Bong]]</tw-passagedata><tw-passagedata pid="41" name="9:15 PM - Dialogue: Refused to Sell Battery" tags="" position="1200,400" size="100,100">Aling Marites fans herself as she walks away grumbling, &quot;Ano ba &#39;yan. Sa&#39;n naman ako maghahanap ng baterya ng remote ngayon? Susmaryosep.&quot;
 
 You re-check your stock and see a box of unopened batteies. You think of calling her back but you don&#39;t want to get scolded by the chismosa ng bayan.
 
@@ -542,21 +584,170 @@ You placed the box of batteries where it&#39;s easier to see.
 
 ---
 
-[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="43" name="Climax - Tanod Backup" tags="" position="2675,400" size="100,100">&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
-Mang Totoy, sitting on the bench, smiles and waves his hand. &quot;Oy, Boy, magbayad ka muna bago ka umutang ulit.&quot;
+[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="42" name="Climax - Tanod Backup" tags="" position="2675,400" size="100,100">Mang Totoy, sitting on the bench, smiles and waves his hand. &quot;Oy, Boy, magbayad ka muna bago ka umutang ulit.&quot;
 
 Mang Boy grunts, pulls out two ₱500 bills, and slaps them onto the counter wooden sill. 
 
 Mang Boy clench his hand, glares at you but leaves.
 
-[[• Good thing Mang Totoy is here...-&gt;Failure - Mang Boy Returns]]</tw-passagedata><tw-passagedata pid="44" name="Failure - Mang Boy Returns" tags="" position="2825,400" size="100,100">&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
+[[• Good thing Mang Totoy is here...-&gt;Failure - Mang Boy Returns]]</tw-passagedata><tw-passagedata pid="43" name="Failure - Mang Boy Returns" tags="" position="2825,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 Not even five minutes pass after Mang Totoy disappeared into the dark eskinita, Mang Boy bursts back into view.
 
 He grabs the iron pipe leaning by the storefront bench, his face twisted in a vengeful rage.
 
 &quot;Sumbungera ka!&quot; he roars, swinging the pipe at you!
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata></tw-storydata>
+[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="44" name="Main Menu" tags="" position="300,400" size="100,100">  &lt;div class=&quot;menu-container&quot;&gt;
+  &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_neng_pipe_gin_exposed.jpg&quot; alt=&quot;Sari-sari store counter at night&quot; class=&quot;menu-img&quot; /&gt;
+  &lt;h1 style=&quot;color: #ffb703; font-size: 2.2em; margin-top: 15px;&quot;&gt;Pabili Po&lt;/h1&gt;
+  &lt;h3 class=&quot;menu-subtitle&quot;&gt;&lt;i&gt;A Sari-Sari Store Story&lt;/i&gt;&lt;/h3&gt;
+  &lt;p class=&quot;menu-desc&quot;&gt;
+    It&#39;s 9:00 PM. You have one hour before Mang Boy arrives at your store window.&lt;br&gt;
+    An argument over a ₱50 debt will explode into violence at 10:00 PM.&lt;br&gt;
+    &lt;b&gt;Find the right chain of actions to break the loop and survive the night.&lt;/b&gt;&lt;/p&gt;
+  &lt;hr style=&quot;border: 0; height: 1px; background: #495057; margin: 25px 0;&quot;&gt;
+  |startLink&gt;[
+    (if: $gameStarted is false)[      &lt;div style=&quot;font-size: 1.3em; margin: 15px 0;&quot;&gt;[[•• START ••-&gt;Start]]&lt;/div&gt;   ](else:)[     &lt;div style=&quot;font-size: 1.3em; margin: 10px 0;&quot;&gt;[[•• RESUME LOOP #$loopCount ••-&gt;Start]]&lt;/div&gt;    ]]
+  &lt;div style=&quot;font-size: 1em; margin-top: 15px;&quot;&gt;    [[How to Play]] | [[Neighborhood Log-&gt;Characters]] | [[Credits]] &lt;/div&gt;
+  &lt;div style=&quot;text-align: center; margin-top: 12px;&quot;&gt;
+    &lt;button onclick=&quot;var audio = document.getElementById(&#39;persistent-bg-music&#39;); if(audio){ if(audio.paused){ audio.play(); this.innerText=&#39;♫ ON&#39;; } else { audio.pause(); this.innerText=&#39;♫ OFF&#39;; } }&quot; style=&quot;background: #181411; color: #ffb703; border: 1px solid #594432; padding: 6px 12px; cursor: pointer; font-family: &#39;Courier New&#39;, monospace; font-size: 0.85em; border-radius: 4px;&quot;&gt;  ♫ ON &lt;/button&gt; &lt;/div&gt;
+  |resetOption&gt;[
+    (if: $gameStarted is true)[
+      &lt;div style=&quot;font-size: 0.85em; margin-top: 15px;&quot;&gt;
+        (link: &quot;Reset Game Progress&quot;)[          (display: &quot;UserInit&quot;)          (replace: ?startLink)[&lt;div style=&quot;font-size: 1.3em; margin: 15px 0;&quot;&gt;[[•• START ••-&gt;Start]]&lt;/div&gt;]
+          (replace: ?resetOption)[&lt;br&gt;&lt;span style=&quot;color: #e63946;&quot;&gt;Progress reset. Click Start above.&lt;/span&gt;]    ]     &lt;/div&gt;    ] ]
+
+  &lt;div class=&quot;menu-footer&quot;&gt;
+    Harlowe 3 • A Time-Loop Narrative
+  &lt;/div&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="45" name="Boot" tags="" position="875,75" size="100,100">:: Boot {&quot;position&quot;:&quot;875,75&quot;,&quot;size&quot;:&quot;100,100&quot;}
+(set: $loopCount to 0)
+(set: $gameStarted to false)
+(display: &quot;UserInit&quot;)
+
+&lt;script&gt;
+  if (!document.getElementById(&#39;persistent-bg-music&#39;)) {
+    var audio = document.createElement(&#39;audio&#39;);
+    audio.id = &#39;persistent-bg-music&#39;;
+    audio.src = &#39;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/sounds/towndogsbark.mp3&#39;;
+    audio.loop = true;
+    audio.preload = &#39;auto&#39;;
+    document.body.appendChild(audio);
+  }
+&lt;/script&gt;
+
+(goto: &quot;Main Menu&quot;)</tw-passagedata><tw-passagedata pid="46" name="Characters" tags="" position="100,200" size="100,100">:: Characters {&quot;position&quot;:&quot;100,200&quot;,&quot;size&quot;:&quot;100,100&quot;}
+&lt;div class=&quot;menu-container&quot; style=&quot;max-width: 950px; text-align: left;&quot;&gt;
+  
+  &lt;h1 style=&quot;text-align: center; color: #ffb703; font-size: 2.5em; margin-bottom: 5px;&quot;&gt;NEIGHBORHOOD LOG&lt;/h1&gt;
+  &lt;div style=&quot;text-align: center; color: #8d99ae; margin-bottom: 30px;&quot;&gt;Mga kilalang mukha sa paligid bago mag-10:00 PM.&lt;/div&gt;
+
+  &lt;!-- NENG --&gt;
+  &lt;div style=&quot;display: flex; background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 20px; margin-bottom: 20px; align-items: center; gap: 20px;&quot;&gt;
+    &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_neng_pipe_gin_exposed.jpg&quot; alt=&quot;Neng&quot; style=&quot;width: 120px; height: 120px; object-fit: cover; border: 2px solid #594432; border-radius: 4px;&quot; /&gt;
+    &lt;div&gt;
+      &lt;h3 style=&quot;color: #ffb703; margin: 0 0 5px 0; font-size: 1.5em;&quot;&gt;Neng (You)&lt;/h3&gt;
+      &lt;p style=&quot;color: #dfd8c8; font-size: 0.95em; margin: 0; line-height: 1.5;&quot;&gt;
+        &lt;b&gt;Quirks &amp; Notes:&lt;/b&gt; Stuck running the family sari-sari store during a harsh time loop. Armed with a notebook ledger and trying desperately to prevent a tragedy at 10:00 PM.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- MANG NOLI --&gt;
+  &lt;div style=&quot;display: flex; background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 20px; margin-bottom: 20px; align-items: center; gap: 20px;&quot;&gt;
+    &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_noli.jpg&quot; alt=&quot;Mang Noli&quot; style=&quot;width: 120px; height: 120px; object-fit: cover; border: 2px solid #594432; border-radius: 4px;&quot; /&gt;
+    &lt;div&gt;
+      &lt;h3 style=&quot;color: #ffb703; margin: 0 0 5px 0; font-size: 1.5em;&quot;&gt;Mang Noli (Your Father)&lt;/h3&gt;
+      &lt;p style=&quot;color: #dfd8c8; font-size: 0.95em; margin: 0; line-height: 1.5;&quot;&gt;
+        &lt;b&gt;Quirks &amp; Notes:&lt;/b&gt; The store owner who usually handles the night shift. Currently away, leaving you to watch the store window and manage the mounting neighborhood tensions.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ALING MARITES --&gt;
+  &lt;div style=&quot;display: flex; background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 20px; margin-bottom: 20px; align-items: center; gap: 20px;&quot;&gt;
+    &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_marites.jpg&quot; alt=&quot;Aling Marites&quot; style=&quot;width: 120px; height: 120px; object-fit: cover; border: 2px solid #594432; border-radius: 4px;&quot; /&gt;
+    &lt;div&gt;
+      &lt;h3 style=&quot;color: #ffb703; margin: 0 0 5px 0; font-size: 1.5em;&quot;&gt;Aling Marites&lt;/h3&gt;
+      &lt;p style=&quot;color: #dfd8c8; font-size: 0.95em; margin: 0; line-height: 1.5;&quot;&gt;
+        &lt;b&gt;Quirks &amp; Notes:&lt;/b&gt; Chismosa ng bayan. Nuff said.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- MANG NESTOR --&gt;
+  &lt;div style=&quot;display: flex; background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 20px; margin-bottom: 20px; align-items: center; gap: 20px;&quot;&gt;
+    &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_nestor.jpg&quot; alt=&quot;Mang Nestor&quot; style=&quot;width: 120px; height: 120px; object-fit: cover; border: 2px solid #594432; border-radius: 4px;&quot; /&gt;
+    &lt;div&gt;
+      &lt;h3 style=&quot;color: #ffb703; margin: 0 0 5px 0; font-size: 1.5em;&quot;&gt;Mang Nestor&lt;/h3&gt;
+      &lt;p style=&quot;color: #dfd8c8; font-size: 0.95em; margin: 0; line-height: 1.5;&quot;&gt;
+        &lt;b&gt;Quirks &amp; Notes:&lt;/b&gt; The tired construction worker. Observant and steady, pero medyo madulas ang dila &#39;pag lasing.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- BONG --&gt;
+  &lt;div style=&quot;display: flex; background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 20px; margin-bottom: 20px; align-items: center; gap: 20px;&quot;&gt;
+    &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_bong.jpg&quot; alt=&quot;Bong&quot; style=&quot;width: 120px; height: 120px; object-fit: cover; border: 2px solid #594432; border-radius: 4px;&quot; /&gt;
+    &lt;div&gt;
+      &lt;h3 style=&quot;color: #ffb703; margin: 0 0 5px 0; font-size: 1.5em;&quot;&gt;Bong&lt;/h3&gt;
+      &lt;p style=&quot;color: #dfd8c8; font-size: 0.95em; margin: 0; line-height: 1.5;&quot;&gt;
+        &lt;b&gt;Quirks &amp; Notes:&lt;/b&gt; The resident tambay. Always hanging around near the store frontage looking for quick small talk, cheap cigarettes, loose change.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- MANG TOTOY --&gt;
+  &lt;div style=&quot;display: flex; background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 20px; margin-bottom: 30px; align-items: center; gap: 20px;&quot;&gt;
+    &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_totoy.jpg&quot; alt=&quot;Mang Totoy&quot; style=&quot;width: 120px; height: 120px; object-fit: cover; border: 2px solid #594432; border-radius: 4px;&quot; /&gt;
+    &lt;div&gt;
+      &lt;h3 style=&quot;color: #ffb703; margin: 0 0 5px 0; font-size: 1.5em;&quot;&gt;Mang Totoy&lt;/h3&gt;
+      &lt;p style=&quot;color: #dfd8c8; font-size: 0.95em; margin: 0; line-height: 1.5;&quot;&gt;
+        &lt;b&gt;Quirks &amp; Notes:&lt;/b&gt; The barangay tanod on night patrol. He is tired of his job.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- MANG BOY --&gt;
+  &lt;div style=&quot;display: flex; background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 20px; margin-bottom: 20px; align-items: center; gap: 20px;&quot;&gt;
+    &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;width: 120px; height: 120px; object-fit: cover; border: 2px solid #594432; border-radius: 4px;&quot; /&gt;
+    &lt;div&gt;
+      &lt;h3 style=&quot;color: #ffb703; margin: 0 0 5px 0; font-size: 1.5em;&quot;&gt;Mang Boy&lt;/h3&gt;
+      &lt;p style=&quot;color: #dfd8c8; font-size: 0.95em; margin: 0; line-height: 1.5;&quot;&gt;
+        &lt;b&gt;Quirks &amp; Notes:&lt;/b&gt; The mekaniko sa kanto. Mahilig bumale sa amo nya. Short-tempered when drinking gin, and easily agitated.
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div style=&quot;text-align: center; margin-top: 30px;&quot;&gt;
+    [[« Back to Main Menu-&gt;Main Menu]]
+  &lt;/div&gt;
+
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="47" name="Credits" tags="" position="100,400" size="100,100">&lt;div class=&quot;menu-container&quot; style=&quot;max-width: 650px; text-align: center;&quot;&gt;
+  
+  &lt;h1 style=&quot;color: #ffb703; font-size: 2.5em; margin-bottom: 5px;&quot;&gt;CREDITS&lt;/h1&gt;
+  &lt;div style=&quot;color: #8d99ae; margin-bottom: 30px;&quot;&gt;The people and tools behind the loop.&lt;/div&gt;
+
+  &lt;div style=&quot;background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 25px; text-align: left; line-height: 1.8; color: #dfd8c8;&quot;&gt;
+    
+    &lt;p style=&quot;margin-top: 0;&quot;&gt;&lt;b&gt;lolomo&lt;/b&gt;
+    &lt;span style=&quot;color: #8d99ae; font-size: 0.9em;&quot;&gt;Story, Game Design, &amp; Visual Assets&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Twine (Harlowe 3.3.9)&lt;/b&gt;
+    &lt;span style=&quot;color: #8d99ae; font-size: 0.9em;&quot;&gt;Game Engine&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;GitHub Pages&lt;/b&gt;
+    &lt;span style=&quot;color: #8d99ae; font-size: 0.9em;&quot;&gt;Hosting &amp; Asset Repository&lt;/span&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;b&gt;Pixabay&lt;/b&gt;
+    &lt;span style=&quot;color: #8d99ae; font-size: 0.9em;&quot;&gt;Background Music &amp; Ambiance&lt;/span&gt;&lt;/p&gt;
+    &lt;hr style=&quot;border: 0; height: 1px; background: #594432; margin: 20px 0;&quot;&gt;
+    &lt;p style=&quot;text-align: center; color: #ffb703; font-weight: bold; margin-bottom: 0;&quot;&gt;SPECIAL THANKS&lt;/p&gt;
+    &lt;p style=&quot;text-align: center; font-style: italic; color: #dfd8c8; margin-top: 5px;&quot;&gt;Me. Huge thanks to me for stubbornly pushing through every bug, fixing the code, and surviving the time loop. ☕&lt;/p&gt;&lt;/div&gt;
+  &lt;div style=&quot;text-align: center; margin-top: 30px;&quot;&gt;
+    [[« Back to Main Menu-&gt;Main Menu]]
+  &lt;/div&gt;
+
+&lt;/div&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim

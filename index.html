@@ -9,7 +9,9 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play pabilipo.</tw-noscript></noscript></tw-story>
-<tw-storydata name="pabilipo" startnode="45" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="1AEF0045-E8FB-46AE-A460-EC6C4D754B43" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* --- SAFE HARLOWE 3.3.9 STYLESHEET --- */
+<tw-storydata name="pabilipo" startnode="45" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="1AEF0045-E8FB-46AE-A460-EC6C4D754B43" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ==============================
+   SAFE HARLOWE 3.3.9 STYLESHEET
+   ============================== */
 @import url('https://fonts.googleapis.com/css2?family=VT323&family=Courier+Prime:wght@400;700&display=swap');
 
 /* Global text and font settings */
@@ -19,10 +21,9 @@ tw-story {
   background-color: #120e0a !important;
 }
 
-/* =========================================================
+/* ==============================
    PASSAGE CONTAINER
-   ========================================================= */
-
+   ============================== */
 tw-passage {
     display: block;
 
@@ -37,11 +38,14 @@ tw-passage {
 
     font-family: "Courier New", Courier, monospace;
 
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.75;
 }
 
-/* Styled interactive choices */
+/* ==============================
+   STYLED INTERACTIVE CHOICES
+   ==============================*/
+
 tw-link, .link {
   color: #ffb703 !important;
   font-weight: bold !important;
@@ -53,14 +57,18 @@ tw-link:hover, .link:hover {
   text-shadow: 0 0 8px rgba(255, 183, 3, 0.6);
 }
 
-/* Headings */
+/* ==============================
+   HEADINGS
+   ============================== */
 h1, h2, h3 {
   font-family: 'VT323', monospace;
   color: #ffb703;
   letter-spacing: 2px;
 }
 
-/* --- LEDGER STYLING --- */
+/* ==============================
+   LEDGER STYLING 
+   ============================== */
 .ledger-page {
   background-color: #fcf8e3;
   background-image: 
@@ -105,21 +113,26 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
-
-/* Main menu container layout */
+/* ==============================
+   MAIN MENU CONTAINER LAYOUT
+   ============================== */
 .menu-container {
   max-width: 650px;
   margin: 0 auto;
   text-align: center;
 }
 
-/* Menu image frame */
+/* ==============================
+   MENU IMAGE FRAME
+   ============================== */
 .menu-img {
   max-width: 100%;
   height: auto;
 }
 
-/* Subtitle and descriptions */
+/* ==============================
+   SUBTITLE AND DESCRIPTION
+   ============================== */
 .menu-subtitle {
   color: #8d99ae;
   font-size: 1.1em;
@@ -188,8 +201,8 @@ The heavy hum of the refrigerator fills the small wooden booth. Outside, the str
 
 ---
 
-[[• Mind the store and wait for a customer to arrive-&gt;9:15 PM - Marites]]\
-(if: $loopCount &gt; 1 and not $ginHidden)[  [[• Hide the Kwatro Kantos bottle under the counter-&gt;Action - Hide Gin at 9:00]]]\
+[[• Mind the store and wait for a customer to arrive-&gt;9:15 PM - Marites]]
+(if: $loopCount &gt; 1 and not $ginHidden)[  [[• Hide the Kwatro Kantos bottle under the counter-&gt;Action - Hide Gin at 9:00]]]
 (if: $knows_pipe_location and not $pipeHidden)[  [[• Hide the iron pipe-&gt;Action - Hide Pipe at 9:00]]]\
 (if: ($knows_bong_tab_error or $knows_ledger_error) and not $ledgerCorrected)[  [[• Correct the ₱50 entry on Mang Boy&#39;s ledger page-&gt;Action - Fix Ledger at 9:00]]]</tw-passagedata><tw-passagedata pid="6" name="Action - Fix Ledger at 9:00" tags="" position="500,1000" size="100,100">(set: $time to &quot;9:10 PM&quot;)\
 (set: $ledgerCorrected to true)\
@@ -224,8 +237,8 @@ Aling Marites walks up, clutching her coin purse while fanning herself with a fo
 
 ---
 
-[[• Sell battery-&gt;9:15 PM - Dialogue: Sell Battery]]\
-[[• Tell her you ran out of batteries to sell-&gt;9:15 PM - Dialogue: Refused to Sell Battery]]\
+[[• Sell battery-&gt;9:15 PM - Dialogue: Sell Battery]]
+[[• Tell her you ran out of batteries to sell-&gt;9:15 PM - Dialogue: Refused to Sell Battery]]
 (if: $loopCount &gt; 1 and not ($knows_bong_tab_error or $knows_ledger_error or $talked_marites_gossip))[ [[• Maki-siyete-&gt;9:15 PM - Dialogue: Maki-siyete]]]\
 (if: $loopCount &gt; 2 and $talked_marites_gossip and not ($knows_bong_tab_error or $knows_ledger_error or $ledgerCorrected))[  [[• Ask her about her conversation with your tatay yesterday-&gt;9:15 PM - Dialogue: Marites Tatay]]]</tw-passagedata><tw-passagedata pid="10" name="9:30 PM - Bench Inspected" tags="" position="2150,1050" size="100,100">(set: $time to &quot;9:30 PM&quot;)\
 (set: $knows_pipe_location to true)\
@@ -271,7 +284,7 @@ Bong slaps his palm against the counter mesh. He is breathing fast and sweating.
 
 ---
 
-[[• Hand him the lighter-&gt;9:30 PM - Dialogue: Bong Lingers]]\
+[[• Hand him the lighter-&gt;9:30 PM - Dialogue: Bong Lingers]]
 (if: not ($failed_pipe or $knows_pipe_location))[  [[• Scold him for asking for a light without buying-&gt;9:30 PM - Dialogue: Bong Scolded]]]\
 (if: $knows_bong_tab_error)[  [[• Ask Bong about the ₱50 yosi tab-&gt;9:30 PM - Bong Confronted]]]</tw-passagedata><tw-passagedata pid="14" name="9:30 PM - Bong Confronted" tags="" position="2000,600" size="100,100">(set: $time to &quot;9:30 PM&quot;)\
 (set: $knows_ledger_error to true)\
@@ -293,7 +306,7 @@ Mang Totoy, the tanod, wipes sweat from his forehead with a small hand towel and
 ---
 
 [[• Sell cigarette-&gt;10:00 PM - The Climax]]
-(if: $loopCount &gt; 1 and not $tanodSched)[[• Ask about his patrol schedule-&gt;9:45 PM - Dialogue: Tanod Schedule]]
+(if: $loopCount &gt; 1 and not $tanodSched)[[• Ask about his patrol schedule-&gt;9:45 PM - Dialogue: Tanod Schedule]]\
 (if: $loopCount &gt; 2 and $tanodSched)[  [[• Offer to brew him a hot coffee-&gt;9:45 PM - Dialogue: Tanod Stalled]]]</tw-passagedata><tw-passagedata pid="16" name="10:00 PM - The Climax" tags="" position="2800,900" size="100,100">(set: $time to &quot;10:00 PM&quot;)\
 &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 
@@ -303,7 +316,7 @@ Mang Boy slams his heavy, grease-stained fist on the wooden counter frame. His b
 
 ---
 
-(if: $ledgerCorrected)[  [[• Remind him of his debt-&gt;Climax - Show Corrected Ledger]]\
+(if: $ledgerCorrected)[  [[• Remind him of his debt-&gt;Climax - Show Corrected Ledger]]
 ](else:)[  [[• Remind him that he still owes ₱470 on his tab-&gt;Climax - Mention Debt]]]\
 (if: $everStashedGin)[  [[• Tell Mang Boy you ran out of alcohol-&gt;Climax - Lie About Gin]]]</tw-passagedata><tw-passagedata pid="17" name="Climax - Lie About Gin" tags="" position="3100,600" size="100,100">(set: $everStashedGin to true)\
 He squints through the wire mesh, searching the empty display shelves where the Kwatro Kantos usually sits.
@@ -327,7 +340,7 @@ His eyes flare up. &quot;Ano &#39;yan?! ₱420 lang &#39;yung utang ko kahapon! 
 
 ---
 
-(if: $ledgerCorrected)[  [[• You tell him you corrected the listahan.-&gt;Climax - Show Corrected Ledger]]\
+(if: $ledgerCorrected)[  [[• You tell him you corrected the listahan.-&gt;Climax - Show Corrected Ledger]]
 ](else:)[  (if: not $pipeHidden)[    [[• You step back as Mang Boy begins to look around...-&gt;Failure - Iron Pipe Left Out]]\
   ](else:)[    [[• He spots the unchanged listahan and snaps...-&gt;Failure - Uncorrected Ledger]]  ]]\
 (if: $tanodStalled)[  [[• Look at Mang Totoy and signal for help-&gt;Climax - Tanod Backup]]]</tw-passagedata><tw-passagedata pid="19" name="Climax - Show Corrected Ledger" tags="" position="2800,600" size="100,100">&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
@@ -450,9 +463,9 @@ As she pays, a ₱20 bill falls under the bench from her purse.
 
 ---
 
+[[• Rest behind the counter-&gt;9:20 PM - Nestor]]
 (if: not $maritesHelped and not $hasPocketMoney)[  [[• Remind her about the ₱20 bill under the bench-&gt;9:15 PM - Dialogue: Remind Bill]]]\
-(if: not $maritesHelped and not $hasPocketMoney)[ [[• Wait for Aling Marites to leave and take the ₱20 bill for yourself-&gt;9:15 PM - Pocket Money]]]\
-[[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="31" name="9:30 PM - Dialogue: Bong Sent Away" tags="" position="2000,1050" size="100,100">(set: $bongSentAway to true)\
+(if: not $maritesHelped and not $hasPocketMoney)[ [[• Wait for Aling Marites to leave and take the ₱20 bill for yourself-&gt;9:15 PM - Pocket Money]]]</tw-passagedata><tw-passagedata pid="31" name="9:30 PM - Dialogue: Bong Sent Away" tags="" position="2000,1050" size="100,100">(set: $bongSentAway to true)\
 &lt;p style=&quot;color: #48cae4;&quot;&gt;&lt;i&gt;You remember how he chased the kids and his dog.&lt;/i&gt;&lt;/p&gt;\
 You tell him you saw his dog being chased by kids near the basketball court.
 
@@ -535,10 +548,10 @@ Seeing his ₱1000  bill you look at your small money drawer, the few bills migh
 ---
 
 (if: $ginHidden)[\
-  [[• Sell him the alcohol from under the counter-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]\
-  [[• Tell Nestor you are out of stock-&gt;9:20 PM - Dialogue: Refuse Nestor]]\
+  [[• Sell him the alcohol from under the counter-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]
+  [[• Tell Nestor you are out of stock-&gt;9:20 PM - Dialogue: Refuse Nestor]]
 ](else:)[\
-  [[• Sell him the gin from the display shelf-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]]\
+  [[• Sell him the gin from the display shelf-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]]
   [[• Tell Nestor you don&#39;t have enough change for ₱1000-&gt;9:20 PM - Dialogue: Refuse Nestor]]</tw-passagedata><tw-passagedata pid="39" name="9:20 PM - Dialogue: Sell Gin to Nestor" tags="" position="1600,800" size="100,100">(set: $ginSoldToNestor to true)\
 (set: $ginStock to $ginStock - 1)\
 (set: $ginHidden to false)\

@@ -149,7 +149,14 @@ h1, h2, h3 {
   margin-top: 30px;
   font-size: 0.75em;
   color: #6c757d;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="UserInit" tags="" position="350,50" size="100,100">(set: $loopCount to 1)
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* ==============================
+   FAVICON
+   ============================== */
+
+document.head.insertAdjacentHTML(
+    "beforeend",
+    '<link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_icon.jpg">'
+);</script><tw-tag name="startup" color="yellow"></tw-tag><tw-passagedata pid="1" name="UserInit" tags="" position="350,50" size="100,100">(set: $loopCount to 1)
 (set: $gameStarted to false)
 (set: $knows_ledger_error to false)
 (set: $knows_pipe_location to false)
@@ -160,7 +167,22 @@ h1, h2, h3 {
 (set: $tanodSched to false)
 (set: $nestorSnitched to false)
 (set: $everStashedGin to false)
-(display: &quot;Reset Variables&quot;)</tw-passagedata><tw-passagedata pid="2" name="Reset Variables" tags="" position="500,50" size="100,100">(set: $time to &quot;9:00 PM&quot;)
+(display: &quot;Reset Variables&quot;)
+
+
+/* ==============================
+   ACHIEVEMENTS
+   ============================== */
+(if: (datatype: $ach_exposed_lie) is not &quot;boolean&quot;)[
+  (set: $ach_exposed_lie to false)
+  (set: $ach_gin_escalation to false)
+  (set: $ach_pipe_smash to false)
+  (set: $ach_uncorrected_ledger to false)
+  (set: $ach_no_tanod to false)
+  (set: $ach_pocket_money to false)
+  (set: $ach_vic_stock to false)
+  (set: $ach_vic_peace to false)
+]</tw-passagedata><tw-passagedata pid="2" name="Reset Variables" tags="" position="500,50" size="100,100">(set: $time to &quot;9:00 PM&quot;)
 (set: $pipeHidden to false)
 (set: $ledgerCorrected to false)
 (set: $ginHidden to false)
@@ -169,7 +191,7 @@ h1, h2, h3 {
 (set: $bongLingering to false)
 (set: $tanodStalled to false)
 (set: $everStashedGin to false)
-(set: $hasPocketMoney to false)</tw-passagedata><tw-passagedata pid="3" name="Header" tags="header" position="100,600" size="100,100">(if: (passage:)&#39;s name is not &quot;Main Menu&quot; and (passage:)&#39;s name is not &quot;How to Play&quot; and (passage:)&#39;s name is not &quot;Characters&quot; and (passage:)&#39;s name is not &quot;Credits&quot; and (passage:)&#39;s name is not &quot;Victory - Out of Stock&quot; and (passage:)&#39;s name is not &quot;Victory - Peaceful Survival&quot;)[  &lt;div style=&quot;border-bottom: 2px solid #594432; padding-bottom: 8px; margin-bottom: 15px; font-family: monospace; font-size: 0.85em; display: flex; justify-content: space-between; align-items: center;&quot;&gt;
+(set: $hasPocketMoney to false)</tw-passagedata><tw-passagedata pid="3" name="Header" tags="header" position="100,600" size="100,100">(if: (passage:)&#39;s name is not &quot;Main Menu&quot; and (passage:)&#39;s name is not &quot;How to Play&quot; and (passage:)&#39;s name is not &quot;Characters&quot; and (passage:)&#39;s name is not &quot;Credits&quot; and (passage:)&#39;s name is not &quot;Victory - Out of Stock&quot; and (passage:)&#39;s name is not &quot;Victory - Peaceful Survival&quot; and (passage:)&#39;s name is not &quot;Achievements&quot;)[  &lt;div style=&quot;border-bottom: 2px solid #594432; padding-bottom: 8px; margin-bottom: 15px; font-family: monospace; font-size: 0.85em; display: flex; justify-content: space-between; align-items: center;&quot;&gt;
     &lt;span&gt;&lt;b&gt;TIME:&lt;/b&gt; $time | &lt;b&gt;LOOP:&lt;/b&gt; #$loopCount&lt;/span&gt;\
     &lt;span&gt;[[Main Menu]]&lt;/span&gt;  &lt;/div&gt;
   (if: $loopCount &gt; 1 and ($knows_pipe_location or $pipeHidden or $ledgerCorrected or $ginHidden or $hasPocketMoney or $tanodSched))[    &lt;div style=&quot;background: #181411; border: 1px solid #594432; padding: 8px 12px; margin-bottom: 15px; border-radius: 4px; font-family: monospace; font-size: 0.8em; color: #dfd8c8;&quot;&gt;\
@@ -195,7 +217,7 @@ h1, h2, h3 {
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Start" tags="" position="300,900" size="100,100">(set: $gameStarted to true)\
 (set: $time to &quot;9:00 PM&quot;)\
 &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_wneng.jpg&quot; alt=&quot;Sari-sari store counter at night&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
-(if: $loopCount &gt; 1)[\
+(if: $loopCount &gt; 1)[
   &lt;p style=&quot;color: #48cae4;&quot;&gt;&lt;i&gt;You look around. Time is 9:00 PM. You remember everything from the previous hour. You have one hour before Mang Boy arrives at your store window..&lt;/i&gt;&lt;/p&gt;]\
 The heavy hum of the refrigerator fills the small wooden booth. Outside, the streetlights flicker over flooded asphalt. You wipe down the glass display jars with a damp rag.
 
@@ -203,7 +225,7 @@ The heavy hum of the refrigerator fills the small wooden booth. Outside, the str
 
 [[• Mind the store and wait for a customer to arrive-&gt;9:15 PM - Marites]]
 (if: $loopCount &gt; 1 and not $ginHidden)[  [[• Hide the Kwatro Kantos bottle under the counter-&gt;Action - Hide Gin at 9:00]]]
-(if: $knows_pipe_location and not $pipeHidden)[  [[• Hide the iron pipe-&gt;Action - Hide Pipe at 9:00]]]\
+(if: $knows_pipe_location and not $pipeHidden)[  [[• Hide the iron pipe-&gt;Action - Hide Pipe at 9:00]]]
 (if: ($knows_bong_tab_error or $knows_ledger_error) and not $ledgerCorrected)[  [[• Correct the ₱50 entry on Mang Boy&#39;s ledger page-&gt;Action - Fix Ledger at 9:00]]]</tw-passagedata><tw-passagedata pid="6" name="Action - Fix Ledger at 9:00" tags="" position="500,1000" size="100,100">(set: $time to &quot;9:10 PM&quot;)\
 (set: $ledgerCorrected to true)\
 You open the listahan ng utang, cross out the ₱50 Fortune cigarette entry on Mang Boy&#39;s page, and re-balance his total debt to ₱420.
@@ -239,7 +261,7 @@ Aling Marites walks up, clutching her coin purse while fanning herself with a fo
 
 [[• Sell battery-&gt;9:15 PM - Dialogue: Sell Battery]]
 [[• Tell her you ran out of batteries to sell-&gt;9:15 PM - Dialogue: Refused to Sell Battery]]
-(if: $loopCount &gt; 1 and not ($knows_bong_tab_error or $knows_ledger_error or $talked_marites_gossip))[ [[• Maki-siyete-&gt;9:15 PM - Dialogue: Maki-siyete]]]\
+(if: $loopCount &gt; 1 and not ($knows_bong_tab_error or $knows_ledger_error or $talked_marites_gossip))[ [[• Maki-siyete-&gt;9:15 PM - Dialogue: Maki-siyete]]]
 (if: $loopCount &gt; 2 and $talked_marites_gossip and not ($knows_bong_tab_error or $knows_ledger_error or $ledgerCorrected))[  [[• Ask her about her conversation with your tatay yesterday-&gt;9:15 PM - Dialogue: Marites Tatay]]]</tw-passagedata><tw-passagedata pid="10" name="9:30 PM - Bench Inspected" tags="" position="2150,1050" size="100,100">(set: $time to &quot;9:30 PM&quot;)\
 (set: $knows_pipe_location to true)\
 As Bong leaves, you go out and look under the wooden bench where customers sit. You now know exactly where Mang Boy finds his weapon.
@@ -306,7 +328,7 @@ Mang Totoy, the tanod, wipes sweat from his forehead with a small hand towel and
 ---
 
 [[• Sell cigarette-&gt;10:00 PM - The Climax]]
-(if: $loopCount &gt; 1 and not $tanodSched)[[• Ask about his patrol schedule-&gt;9:45 PM - Dialogue: Tanod Schedule]]\
+(if: $loopCount &gt; 1 and not $tanodSched)[[• Ask about his patrol schedule-&gt;9:45 PM - Dialogue: Tanod Schedule]]
 (if: $loopCount &gt; 2 and $tanodSched)[  [[• Offer to brew him a hot coffee-&gt;9:45 PM - Dialogue: Tanod Stalled]]]</tw-passagedata><tw-passagedata pid="16" name="10:00 PM - The Climax" tags="" position="2800,900" size="100,100">(set: $time to &quot;10:00 PM&quot;)\
 &lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 
@@ -317,7 +339,7 @@ Mang Boy slams his heavy, grease-stained fist on the wooden counter frame. His b
 ---
 
 (if: $ledgerCorrected)[  [[• Remind him of his debt-&gt;Climax - Show Corrected Ledger]]
-](else:)[  [[• Remind him that he still owes ₱470 on his tab-&gt;Climax - Mention Debt]]]\
+](else:)[  [[• Remind him that he still owes ₱470 on his tab-&gt;Climax - Mention Debt]]]
 (if: $everStashedGin)[  [[• Tell Mang Boy you ran out of alcohol-&gt;Climax - Lie About Gin]]]</tw-passagedata><tw-passagedata pid="17" name="Climax - Lie About Gin" tags="" position="3100,600" size="100,100">(set: $everStashedGin to true)\
 He squints through the wire mesh, searching the empty display shelves where the Kwatro Kantos usually sits.
 
@@ -341,8 +363,8 @@ His eyes flare up. &quot;Ano &#39;yan?! ₱420 lang &#39;yung utang ko kahapon! 
 ---
 
 (if: $ledgerCorrected)[  [[• You tell him you corrected the listahan.-&gt;Climax - Show Corrected Ledger]]
-](else:)[  (if: not $pipeHidden)[    [[• You step back as Mang Boy begins to look around...-&gt;Failure - Iron Pipe Left Out]]\
-  ](else:)[    [[• He spots the unchanged listahan and snaps...-&gt;Failure - Uncorrected Ledger]]  ]]\
+](else:)[  (if: not $pipeHidden)[    [[• You step back as Mang Boy begins to look around...-&gt;Failure - Iron Pipe Left Out]]
+  ](else:)[    [[• He spots the unchanged listahan and snaps...-&gt;Failure - Uncorrected Ledger]]  ]]
 (if: $tanodStalled)[  [[• Look at Mang Totoy and signal for help-&gt;Climax - Tanod Backup]]]</tw-passagedata><tw-passagedata pid="19" name="Climax - Show Corrected Ledger" tags="" position="2800,600" size="100,100">&lt;img src=&quot;https://raw.githubusercontent.com/lolo-mo/pabilipo/refs/heads/main/images/pabilipo_boy.jpg&quot; alt=&quot;Mang Boy&quot; style=&quot;max-width:100%; height:auto;&quot; /&gt;
 You explained to him about the debt mix up between him and Bong which you already corrected. But he still owes ₱420.
 
@@ -366,8 +388,9 @@ His aggressive posture softens slightly.
 ](else:)[\
   Even though the ledger is fixed, there are no witnesses around to keep him in line. His eyes wander down toward the bench...
 
-  [[• Mang Boy grabs you...-&gt;Failure - No Tanod Backup]]]</tw-passagedata><tw-passagedata pid="20" name="Victory - Out of Stock" tags="" position="700,150" size="100,100">(set: $time to &quot;10:01 PM&quot;)
+  [[• Mang Boy grabs you...-&gt;Failure - No Tanod Backup]]]</tw-passagedata><tw-passagedata pid="20" name="Victory - Out of Stock" tags="" position="900,300" size="100,100">(set: $time to &quot;10:01 PM&quot;)
 (set: $gameStarted to false)
+(set: $ach_vic_stock to true)
 Mang Totoy, sitting on the bench, looks up and laughs. &quot;Ubos na pala, Boy! Uwi ka na, gabi na rin!&quot;
 
 Mang Boy grumbles, wipes his sweat-slick forehead, and turns around. &quot;Aba&#39;y malas... Sige, bukas na lang.&quot;
@@ -380,9 +403,10 @@ You watch him vanish into the dark alley as the wall clock ticks to 10:01 PM. Th
 
 &lt;hr style=&quot;border: 0; height: 1px; background: #495057; margin: 25px 0;&quot;&gt;
 &lt;div style=&quot;text-align: center;&quot;&gt;
-  [[Return to Main Menu-&gt;New Game Reset]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Victory - Peaceful Survival" tags="" position="700,300" size="100,100">(set: $time to &quot;10:01 PM&quot;)
+  [[Return to Main Menu-&gt;Victory Reset]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="Victory - Peaceful Survival" tags="" position="900,100" size="100,100">(set: $time to &quot;10:01 PM&quot;)
 (set: $gameStarted to false)
+(set: $ach_vic_peace to true)
 Mang Totoy, sitting on the bench, smiles and waves his hand. &quot;Oy, Boy, magbayad ka muna bago ka umutang ulit.&quot;
 
 Mang Boy coughs, pulls out ₱500 bill, and slaps them onto the counter wooden sill. &quot;Eto na! &#39;Tas bigyan mo na rin ako ng bilog, Neng. Dun na lang ako sa bahay iinom!&quot;
@@ -396,27 +420,31 @@ You de-escalated the situation completely across $loopCount loop(s).&lt;/p&gt;
 
 &lt;hr style=&quot;border: 0; height: 1px; background: #495057; margin: 25px 0;&quot;&gt;
 &lt;div style=&quot;text-align: center;&quot;&gt;
-  [[Return to Main Menu-&gt;New Game Reset]]
+  [[Return to Main Menu-&gt;Victory Reset]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="Failure - Gin Hidden Escalation" tags="" position="3100,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)\
+(set: $ach_gin_escalation to true)\
 Convinced that you are refusing to sell to him on purpose, Mang Boy&#39;s paranoid drunken rage triggers. Without a witness around to stop him, he grabs the side of the wooden counter sill and rips open the wire screen by main force.
 
 The glass jars smash onto the floor as he force his way in. Mang Boy grabs your hair and slams your head over the counter.
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="23" name="Failure - Iron Pipe Left Out" tags="" position="2200,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)\
-(set: $failed_pipe to true)\
-(set: $knows_pipe_location to true)\
+[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="23" name="Failure - Iron Pipe Left Out" tags="" position="2200,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+(set: $failed_pipe to true)
+(set: $knows_pipe_location to true)
+(set: $ach_pipe_smash to true)
 Even though you try to explain, Mang Boy&#39;s temper flares. He looks down at his feet and spots the heavy iron pipe leaning right against the wooden bench.
 
 Without hesitation, he scoots the pipe into his right hand, swings it upward, and smashes straight through the shelves. The wooden structure collapses on top of you.
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="24" name="Failure - No Tanod Backup" tags="" position="2900,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)\
+[[•• It&#39;s not too late! You...-&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="24" name="Failure - No Tanod Backup" tags="" position="2900,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+(set: $ach_no_tanod to true)
 You managed to fix the ledger and hide the iron pipe, but with the street completely deserted at 10:00 PM, Mang Boy feels emboldened. Realizing there are no witnesses around, he grabs you by the hair and force his way in.
 
 A desperate struggle breaks out as you try to defend yourself. You grabbed the iron pipe from behind the chest where you hid it but he easily took from you.
 
 He slams you on the back shelf knocking over the heavy gas stove behind you. The last you see is Mang Boy raising his hand to swing at you...
 &lt;br&gt;&lt;br&gt;
-[[•• It&#39;s not too late! You... -&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="25" name="Failure - Uncorrected Ledger" tags="" position="2400,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)\
+[[•• It&#39;s not too late! You... -&gt;Loop Reset]]</tw-passagedata><tw-passagedata pid="25" name="Failure - Uncorrected Ledger" tags="" position="2400,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)
+(set: $ach_uncorrected_ledger to true)
 You show Mang Boy the &lt;i&gt;listahan&lt;/i&gt; showing a ₱470 balance. 
 
 &quot;Puta!&quot; he roars, slamming his palm against the wooden frame. &quot;Sabi ng tatay mo kahapon aayusin n&#39;ya &#39;yan! Niloloko niyo akong mag-ama!&quot;
@@ -464,7 +492,7 @@ As she pays, a ₱20 bill falls under the bench from her purse.
 ---
 
 [[• Rest behind the counter-&gt;9:20 PM - Nestor]]
-(if: not $maritesHelped and not $hasPocketMoney)[  [[• Remind her about the ₱20 bill under the bench-&gt;9:15 PM - Dialogue: Remind Bill]]]\
+(if: not $maritesHelped and not $hasPocketMoney)[  [[• Remind her about the ₱20 bill under the bench-&gt;9:15 PM - Dialogue: Remind Bill]]]
 (if: not $maritesHelped and not $hasPocketMoney)[ [[• Wait for Aling Marites to leave and take the ₱20 bill for yourself-&gt;9:15 PM - Pocket Money]]]</tw-passagedata><tw-passagedata pid="31" name="9:30 PM - Dialogue: Bong Sent Away" tags="" position="2000,1050" size="100,100">(set: $bongSentAway to true)\
 &lt;p style=&quot;color: #48cae4;&quot;&gt;&lt;i&gt;You remember how he chased the kids and his dog.&lt;/i&gt;&lt;/p&gt;\
 You tell him you saw his dog being chased by kids near the basketball court.
@@ -512,6 +540,7 @@ He leans the pipe next to the wooden bench and sprints after them.
 ---
 
 [[• Wait for the next customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="36" name="9:15 PM - Pocket Money" tags="" position="1400,600" size="100,100">(set: $hasPocketMoney to true)\
+(set: $ach_pocket_money to true)\
 You hand her two AA batteries through the wire mesh and keep quiet about the money.
 
 Aling Marites pays, fans herself, and walks away down the dark alley without noticing. As soon as she&#39;s gone, you slip outside, pick up the crumpled ₱20 bill from under the bench, and pocket it.
@@ -522,6 +551,7 @@ Aling Marites pays, fans herself, and walks away down the dark alley without not
 
 [[• Rest behind the counter-&gt;9:20 PM - Nestor]]</tw-passagedata><tw-passagedata pid="37" name="Failure - Exposed Lie" tags="" position="3325,400" size="100,100">(set: $time to &quot;10:00 PM&quot;)\
 (set: $nestorSnitched to true)\
+(set: $ach_exposed_lie to true)\
 As Mang Boy reaches the end of the alley, he pauses to light a cigarette. 
 
 You see Mang Nestor passing by him, clutching the bottle you sold him at 9:20 PM, swaying a bit—he must already be drunk.
@@ -547,11 +577,9 @@ Seeing his ₱1000  bill you look at your small money drawer, the few bills migh
 
 ---
 
-(if: $ginHidden)[\
-  [[• Sell him the alcohol from under the counter-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]
+(if: $ginHidden)[  [[• Sell him the alcohol from under the counter-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]
   [[• Tell Nestor you are out of stock-&gt;9:20 PM - Dialogue: Refuse Nestor]]
-](else:)[\
-  [[• Sell him the gin from the display shelf-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]]
+](else:)[  [[• Sell him the gin from the display shelf-&gt;9:20 PM - Dialogue: Sell Gin to Nestor]]]
   [[• Tell Nestor you don&#39;t have enough change for ₱1000-&gt;9:20 PM - Dialogue: Refuse Nestor]]</tw-passagedata><tw-passagedata pid="39" name="9:20 PM - Dialogue: Sell Gin to Nestor" tags="" position="1600,800" size="100,100">(set: $ginSoldToNestor to true)\
 (set: $ginStock to $ginStock - 1)\
 (set: $ginHidden to false)\
@@ -603,20 +631,14 @@ He grabs the iron pipe leaning by the storefront bench, his face twisted in a ve
   &lt;h3 class=&quot;menu-subtitle&quot;&gt;&lt;i&gt;A Sari-Sari Store Story&lt;/i&gt;&lt;/h3&gt;\
   &lt;p class=&quot;menu-desc&quot;&gt;It&#39;s 9:00 PM
     An argument will explode into violence at 10:00 PM.
-    
     &lt;b&gt;Find the right chain of actions to break the loop and survive the night.&lt;/b&gt;&lt;/p&gt;\
   &lt;hr style=&quot;border: 0; height: 1px; background: #495057; margin: 25px 0;&quot;&gt;\
-  |startLink&gt;[ (if: $gameStarted is false)[      &lt;div style=&quot;font-size: 1.3em; margin: 15px 0;&quot;&gt;[[•• START ••-&gt;Start]]&lt;/div&gt;   ](else:)[     &lt;div style=&quot;font-size: 1.3em; margin: 10px 0;&quot;&gt;[[•• RESUME LOOP #$loopCount ••-&gt;Start]]&lt;/div&gt;    ]]\
-  &lt;div style=&quot;font-size: 1.3em; margin: 15px 0;&quot;&gt;[[•• NEW GAME ••-&gt;New Game Reset]]&lt;/div&gt;\
-  &lt;div style=&quot;font-size: 1em; margin-top: 15px;&quot;&gt;    [[How to Play]] | [[Neighborhood Log-&gt;Characters]] | [[Credits]] &lt;/div&gt;\
+  |startLink&gt;[ (if: $gameStarted is false)[  &lt;div style=&quot;font-size: 1.3em; margin: 15px 0;&quot;&gt;[[•• START ••-&gt;Start]]&lt;/div&gt;  ](else:)[  &lt;div style=&quot;font-size: 1.3em; margin: 10px 0;&quot;&gt;[[•• RESUME LOOP #$loopCount ••-&gt;Start]]&lt;/div&gt;    ]]
+  &lt;div style=&quot;font-size: 1.3em; margin: 15px 0;&quot;&gt;[[•• NEW GAME ••-&gt;New Game Reset]]&lt;/div&gt;
+  &lt;div style=&quot;font-size: 1em; margin-top: 15px;&quot;&gt;    [[How to Play]] | [[Neighborhood Log-&gt;Characters]] | [[Achievements]] | [[Credits]] &lt;/div&gt;
   &lt;div style=&quot;text-align: center; margin-top: 12px;&quot;&gt;\
     &lt;button onclick=&quot;var audio = document.getElementById(&#39;persistent-bg-music&#39;); if(audio){ if(audio.paused){ audio.play(); this.innerText=&#39;♫ ON&#39;; } else { audio.pause(); this.innerText=&#39;♫ OFF&#39;; } }&quot; style=&quot;background: #181411; color: #ffb703; border: 1px solid #594432; padding: 6px 12px; cursor: pointer; font-family: &#39;Courier New&#39;, monospace; font-size: 0.85em; border-radius: 4px;&quot;&gt;  ♫ OFF &lt;/button&gt; &lt;/div&gt;\
-  |resetOption&gt;[\
-    (if: $gameStarted is true)[\
-      &lt;div style=&quot;font-size: 0.85em; margin-top: 15px;&quot;&gt;\
-        [[Reset Game Progress-&gt;New Game Reset]]\
-      &lt;/div&gt;    ] ]\
-\
+  |resetOption&gt;[ (if: $gameStarted is true)[ &lt;div style=&quot;font-size: 0.85em; margin-top: 15px;&quot;&gt;  [[Reset Game Progress-&gt;New Game Reset]]  &lt;/div&gt;    ] ]
   &lt;div class=&quot;menu-footer&quot;&gt;\
     © 2026 • Pabili Po
   &lt;/div&gt;
@@ -746,7 +768,49 @@ You grab the heavy iron pipe leaning against the outer bench. You look around wh
 
 ---
 
-[[• Wait for a customer-&gt;9:45 PM - Tanod]]</tw-passagedata></tw-storydata>
+[[• Wait for a customer-&gt;9:45 PM - Tanod]]</tw-passagedata><tw-passagedata pid="50" name="Achievements" tags="" position="500,500" size="100,100">&lt;div class=&quot;menu-container&quot; style=&quot;max-width: 650px; text-align: left;&quot;&gt;
+  &lt;h1 style=&quot;text-align: center; color: #ffb703; font-size: 2.5em; margin-bottom: 5px;&quot;&gt;ACHIEVEMENTS&lt;/h1&gt;
+  &lt;div style=&quot;background: #181411; border: 2px solid #594432; border-radius: 6px; padding: 20px; color: #dfd8c8; line-height: 1.6;&quot;&gt;\
+    (if: not ($ach_uncorrected_ledger or $ach_pipe_smash or $ach_exposed_lie or $ach_gin_escalation or $ach_no_tanod or $ach_pocket_money or $ach_vic_stock or $ach_vic_peace))[\
+      &lt;div style=&quot;text-align: center; color: #6c757d; font-style: italic; padding: 20px 0;&quot;&gt;You haven&#39;t unlocked any achievements yet.&lt;/div&gt;\
+    ](else:)[\
+      &lt;!-- VICTORY / LOOP BROKEN SECTION --&gt;\
+      (if: $ach_vic_stock or $ach_vic_peace)[  &lt;h3 style=&quot;color: #ffb703; border-bottom: 1px dashed #594432; padding-bottom: 5px;&quot;&gt;Tagumpay!&lt;/h3&gt; ]\
+      (if: $ach_vic_stock)[ &lt;p&gt;&lt;b&gt;🏆 Sinungaling!&lt;/b&gt;&lt;br&gt;\
+      &lt;span style=&quot;color: #2ec4b6;&quot;&gt;Unlocked: Broke the loop by lying to Mang Boy that you ran out of gin.&lt;/span&gt;&lt;/p&gt;]\
+      (if: $ach_vic_peace)[ &lt;p&gt;&lt;b&gt;🏆 Uwian Na!&lt;/b&gt;&lt;br&gt;\
+        &lt;span style=&quot;color: #2ec4b6;&quot;&gt;Unlocked: Peacefully sent Mang Boy home.&lt;/span&gt;&lt;/p&gt;]
+      &lt;!-- MALING AKALA / FAILURES SECTION --&gt;\
+      (if: $ach_uncorrected_ledger or $ach_pipe_smash or $ach_exposed_lie or $ach_gin_escalation or $ach_no_tanod)[\
+        &lt;h3 style=&quot;color: #ffb703; border-bottom: 1px dashed #594432; padding-bottom: 5px; margin-top: 25px;&quot;&gt;Maling Akala&lt;/h3&gt;      ]\
+      &lt;!-- Achievement 1: Uncorrected Ledger --&gt;\
+      (if: $ach_uncorrected_ledger)[       &lt;p&gt;&lt;b&gt;💥 Ayusin Mo Kasi&lt;/b&gt;&lt;br&gt;\
+        &lt;span style=&quot;color: #2ec4b6;&quot;&gt;Unlocked: Died from an uncorrected ledger dispute.&lt;/span&gt;&lt;/p&gt;      ]\
+      &lt;!-- Achievement 2: Pipe Left Out --&gt;\
+      (if: $ach_pipe_smash)[       &lt;p&gt;&lt;b&gt;💥 Pipe Problem&lt;/b&gt;&lt;br&gt;\
+        &lt;span style=&quot;color: #2ec4b6;&quot;&gt;Unlocked: Died because Mang Boy used the left-out pipe against you.&lt;/span&gt;&lt;/p&gt;   ]\
+      &lt;!-- Achievement 3: Exposed Lie --&gt;\
+      (if: $ach_exposed_lie)[       &lt;p&gt;&lt;b&gt;💥 Buking!&lt;/b&gt;&lt;br&gt;\
+        &lt;span style=&quot;color: #2ec4b6;&quot;&gt;Unlocked: Mang Boy ended you because he caught lying about the gin.&lt;/span&gt;&lt;/p&gt;      ]\
+      &lt;!-- Achievement 4: Gin Escalation --&gt;\
+      (if: $ach_gin_escalation)[        &lt;p&gt;&lt;b&gt;💥 Alak Pa More&lt;/b&gt;&lt;br&gt;\
+        &lt;span style=&quot;color: #2ec4b6;&quot;&gt;Unlocked: Mang Boy is just a bad dude.&lt;/span&gt;&lt;/p&gt;  ]\
+      &lt;!-- Achievement 5: No Tanod --&gt;\
+      (if: $ach_no_tanod)[       &lt;p&gt;&lt;b&gt;💥 Barangay Tulog&lt;/b&gt;&lt;br&gt;\
+        &lt;span style=&quot;color: #2ec4b6;&quot;&gt;Unlocked: Sabi sa chismis, Mang Totoy has narcolepsy. Malas mo, neng.&lt;/span&gt;&lt;/p&gt;      ]\
+      &lt;!-- SECRET ITEMS SECTION --&gt;\
+      (if: $ach_pocket_money)[        &lt;h3 style=&quot;color: #ffb703; border-bottom: 1px dashed #594432; padding-bottom: 5px; margin-top: 25px;&quot;&gt;SECRET ITEMS&lt;/h3&gt;\
+        &lt;p&gt;&lt;b&gt;💰 Magna&lt;/b&gt;&lt;br&gt;\
+        &lt;span style=&quot;color: #2ec4b6;&quot;&gt;Unlocked: Stole Aling Marites&#39; dropped 20 pesos.&lt;/span&gt;&lt;/p&gt;  ]  ]\
+  &lt;/div&gt;\
+  &lt;hr style=&quot;border: 0; height: 1px; background: #495057; margin: 25px 0;&quot;&gt;\
+  &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;\
+    [[« Back to Main Menu-&gt;Main Menu]]
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="51" name="Victory Reset" tags="" position="700,200" size="100,100">(set: $loopCount to 1)
+(set: $gameStarted to false)
+(display: &quot;Reset Variables&quot;)
+(goto: &quot;Main Menu&quot;)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
